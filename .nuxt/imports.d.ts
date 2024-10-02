@@ -30,5 +30,4 @@ export { injectHead, useHead, useSeoMeta, useHeadSafe, useServerHead, useServerS
 export { default as useProfile } from '../composables/useProfile';
 export { usePinia } from '../node_modules/@pinia/nuxt/dist/runtime/composables';
 export { useColorMode } from '../node_modules/@nuxtjs/color-mode/dist/runtime/composables';
-export { useNuxtDevTools } from '../node_modules/@nuxt/devtools/dist/runtime/use-nuxt-devtools';
 export { definePageMeta } from '../node_modules/nuxt/dist/pages/runtime/composables';
