@@ -1,0 +1,1 @@
+export { default } from "file:///F:/proyecto/poweramigoGrid/node_modules/@nuxt/vite-builder/dist/runtime/vite-node.mjs"

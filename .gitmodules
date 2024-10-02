@@ -1,0 +1,3 @@
+[submodule "poweramigoGrid"]
+	path = poweramigoGrid
+	url = https://github.com/julosnacar/poweramigoGrid.git
