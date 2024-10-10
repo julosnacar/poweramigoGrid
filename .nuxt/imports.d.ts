@@ -30,4 +30,5 @@ export { injectHead, useHead, useSeoMeta, useHeadSafe, useServerHead, useServerS
 export { default as useProfile } from '../composables/useProfile';
 export { usePinia } from '../node_modules/.pnpm/@pinia+nuxt@0.4.11_magicast@0.3.5_rollup@4.24.0_vue@3.5.10_webpack-sources@3.2.3/node_modules/@pinia/nuxt/dist/runtime/composables';
 export { useColorMode } from '../node_modules/.pnpm/@nuxtjs+color-mode@3.3.0_magicast@0.3.5_rollup@4.24.0_webpack-sources@3.2.3/node_modules/@nuxtjs/color-mode/dist/runtime/composables';
+export { useNuxtDevTools } from '../node_modules/.pnpm/@nuxt+devtools@1.4.1_rollup@4.24.0_vite@5.4.8_@types+node@18.11.11_sass@1.63.6_terser@5.18.2__webpack-sources@3.2.3/node_modules/@nuxt/devtools/dist/runtime/use-nuxt-devtools';
 export { definePageMeta } from '../node_modules/.pnpm/nuxt@3.13.2_@parcel+watcher@2.4.1_@types+node@18.11.11_ioredis@5.4.1_magicast@0.3.5_rollup@4._7bnozvsa3rzpo6slnv67g3cazu/node_modules/nuxt/dist/pages/runtime/composables';
