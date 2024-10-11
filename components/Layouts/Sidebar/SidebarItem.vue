@@ -59,7 +59,5 @@ const isUrlActive = (url: string) => url == route.path;
 </li>
 </template>
 <style>
-.submenu {
-    transition: all .5s !important;
-}
+.submenu { transition: all .5s !important; }
 </style>

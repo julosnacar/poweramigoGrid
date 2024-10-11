@@ -63,13 +63,12 @@ export default {
   <div>
     <div class="page-heading">
         <h3>Energy Monitoring System</h3>
-        <h3>Calendario</h3>
     </div>
     <div class="page-content">
         <section class="row">
             <div class="col-12">
                 <div class="row">
-                    <div class="col-6 col-lg-6 col-md-6">
+                    <div class="col-12 col-lg-6 col-md-4">
                         <div class="card">
                             <div class="card-body px-3 py-3">
                                 <div class="row">
@@ -88,7 +87,7 @@ export default {
                             </div>
                         </div>
                     </div>
-                    <div class="col-6 col-lg-6 col-md-6">
+                    <div class="col-12 col-lg-6 col-md-4">
                         <div class="card">
                             <div class="card-body px-3 py-3">
                                 <div class="row">
