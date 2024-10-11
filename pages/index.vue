@@ -9,12 +9,14 @@ export default {
       Tower_1:0,
       Tower_2:0,
       suma:0,
+      temp:0,
       optionsProfileVisit: {
         dataLabels: { enabled:true },
         chart: { toolbar: { show: false }, type: 'bar',stacked: true, },
+        plotOptions: { bar: {horizontal: true,},},
         series: [{ name: 'Grid',data: [] },{ name: 'Solar',data: [] }],
         colors: ['#004062','#FDC015'],
-        xaxis: { categories: ["Tower 3","Tower 132"],},
+        xaxis: { categories: ["Tower 3" + " kWh","Tower 132" + " kWh"],},
       }
     }
   },
@@ -28,24 +30,26 @@ export default {
       const datosMes = await graph()
       if (datosMes[0]._rawValue === null) {return this.optionsProfileVisit.series} else {
         datosMes[0]._rawValue.grid.map((valor) => {this.suma += valor.value})
-        this.optionsProfileVisit.series[0].data.push(this.suma)
-        this.Tower_1 = this.suma
-        this.suma = 0
-
-        datosMes[1]._rawValue.grid.map((valor) => {this.suma += valor.value/1000})
-        this.optionsProfileVisit.series[0].data.push(this.suma)
-        this.Tower_2 += this.suma
+        this.optionsProfileVisit.series[0].data.push(this.suma.toFixed(3))
+        this.temp = this.suma
         this.suma = 0
 
         datosMes[0]._rawValue.generation.map((valor) => {this.suma += valor.value})
-        this.optionsProfileVisit.series[1].data.push(this.suma)
-        this.Tower_1 += this.suma
+        if (this.suma > 0) {this.optionsProfileVisit.series[1].data.push(this.suma.toFixed(3))}
+        this.Tower_1 = (this.temp + this.suma).toFixed(3)
+        this.suma = 0
+        this.temp = 0
+
+        datosMes[1]._rawValue.grid.map((valor) => {this.suma += valor.value/1000})
+        if (this.suma > 0) {this.optionsProfileVisit.series[0].data.push(this.suma.toFixed(3))}
+        this.temp = this.suma
         this.suma = 0
 
         datosMes[1]._rawValue.generation.map((valor) => {this.suma += valor.value/1000})
-        this.optionsProfileVisit.series[1].data.push(this.suma)
-        this.Tower_2 += this.suma
+        if (this.suma > 0) {this.optionsProfileVisit.series[1].data.push(this.suma.toFixed(3))}
+        this.Tower_2 = (this.suma + this.temp).toFixed(3)
         this.suma = 0
+        this.temp = 0
 
       }
     }
@@ -59,6 +63,7 @@ export default {
   <div>
     <div class="page-heading">
         <h3>Energy Monitoring System</h3>
+        <h3>Calendario</h3>
     </div>
     <div class="page-content">
         <section class="row">

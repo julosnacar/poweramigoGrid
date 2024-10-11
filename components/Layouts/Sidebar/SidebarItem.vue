@@ -1,19 +1,6 @@
 <script lang="ts" setup>
-interface Menu {
-	name: string
-	key?: string
-	icon?: string
-	url?: string
-	submenu: {
-		name: string
-		url: string
-	}[]
-}
-
-const props = defineProps<{
-  item: Menu
-}>();
-
+interface Menu { name: string, key?: string, icon?: string, url?: string  ,submenu: { name: string, url: string }[] }
+const props = defineProps<{ item: Menu }>();
 const route = useRoute();
 const sidebarItem = ref<HTMLElement>();
 const submenu = ref<HTMLElement>();
@@ -27,7 +14,6 @@ const isActive = computed(() => {
 onMounted(() => {
 	if (submenu.value) {
 		submenuOriginalHeight.value = submenu.value.offsetHeight
-
 		isSubActive.value = isActive.value
 		submenuHeight.value = (isSubActive.value ? submenuOriginalHeight.value : 0) + "px"
 	}
@@ -43,14 +29,14 @@ const hasSub = computed(()=>{
 })
 
 const menuClick = (event: MouseEvent) => {
-	if(isSubActive.value)
-		submenuHeight.value = "0";
-	else submenuHeight.value = submenuOriginalHeight.value + "px"
+	if(isSubActive.value) submenuHeight.value = "0";
+	else submenuHeight.value = submenuOriginalHeight.value + "px" 
 	isSubActive.value = !isSubActive.value;
 }
 
 const isUrlActive = (url: string) => url == route.path;
 </script>
+
 <template>
 <li class="sidebar-item" :class="{ 'active' : isActive, 'has-sub' : hasSub }" ref="sidebarItem"  >
     <template v-if="hasSub">
